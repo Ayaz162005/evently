@@ -29,6 +29,7 @@ export const checkoutOrder = async (order: CheckoutOrderParams) => {
             unit_amount: price,
             product_data: {
               name: order.eventTitle,
+              images: [order.image],
             },
           },
           quantity: 1,
@@ -119,7 +120,7 @@ export async function getOrdersByEvent({
         },
       },
     ]);
-
+    console.log(orders);
     return JSON.parse(JSON.stringify(orders));
   } catch (error) {
     handleError(error);

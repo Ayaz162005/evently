@@ -108,6 +108,7 @@ export type CheckoutOrderParams = {
   eventTitle: string;
   eventId: string;
   price: string;
+  image: string;
   isFree: boolean;
   buyerId: string;
 };

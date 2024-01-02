@@ -3,20 +3,18 @@ import { NextResponse } from "next/server";
 import { createOrder } from "@/lib/actions/order.actions";
 
 export async function POST(request: Request) {
-  console.log("ddkdkdjfffffffffff");
   const body = await request.text();
-  console.log("ffffffffffffffffffffffffffshld");
+
   const sig = request.headers.get("stripe-signature") as string;
   const endpointSecret = process.env.STRIPE_WEBHOOK_SECRET!;
 
   let event;
-  console.log("dkflkdlfdf");
+
   try {
     event = stripe.webhooks.constructEvent(body, sig, endpointSecret);
   } catch (err) {
     return NextResponse.json({ message: "Webhook error", error: err });
   }
-  console.log("r8ieueiri");
   // Get the ID and type
   const eventType = event.type;
 

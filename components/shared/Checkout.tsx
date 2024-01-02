@@ -21,11 +21,13 @@ const Checkout = ({ event, userId }: { event: IEvent; userId: string }) => {
       );
     }
   }, []);
+  console.log(event);
 
   const onCheckout = async () => {
     const order = {
       eventTitle: event.title,
       eventId: event._id,
+      image: event.imageUrl,
       price: event.price,
       isFree: event.isFree,
       buyerId: userId,
