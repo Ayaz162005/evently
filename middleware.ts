@@ -12,7 +12,7 @@ export default authMiddleware({
     "/api/uploadthing",
   ],
   ignoredRoutes: [
-    "/events/:id",
+    // "/events/:id",
     "/api/webhook/clerk",
     "/api/webhook/stripe",
     "/api/uploadthing",
